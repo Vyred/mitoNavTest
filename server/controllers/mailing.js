@@ -1,9 +1,43 @@
-const mailgun = require("mailgun");
-const mailcomposer = require("mailcomposer");
-
+let domain = 'mydomian.org'
 let apiKey = (process.env.apiKey || config.apiKey);
 let mg = new mailgun(apiKey);
-let mail = mailcomposer(mailOptions)
+const mailgun = require("mailgun-js")({ apiKey: "YOUR API KEY", domain: domain });
+
+const mailcomposer = require("mailcomposer")
+
+var mail = mailcomposer({
+  from: 'you@samples.mailgun.org',
+  to: 'mm@samples.mailgun.org',
+  subject: 'Test email subject',
+  text: 'Test email text',
+  html: '<b> Test email text </b>'
+});
+ 
+mail.build(function(mailBuildError, message) {
+ 
+    var dataToSend = {
+        to: 'mm@samples.mailgun.org',
+        message: message.toString('ascii')
+    };
+ 
+    mailgun.messages().sendMime(dataToSend, function (sendError, body) {
+        if (sendError) {
+            console.log(sendError);
+            return;
+        }
+    });
+});
+
+let filepath = '/path/to/message.mime';
+  
+let data = {
+  to: fixture.message.to,
+  message: filepath
+};
+ 
+mailgun.messages().sendMime(data, function (err, body) {
+  console.log(body);
+});
 
 
 //////////////////////////////////////////////
