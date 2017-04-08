@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <!-- CSS SECTION -->
+    <link rel="stylesheet" href="/Scripts/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Scripts/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/Scripts/lib/font-awesome/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/Content/app.css' />
+  </head>
+  <body>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><i class="fa fa-fort-awesome"></i> Mitochondrial Diseases</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <% if(title == "Home") { %>
+          <li class="active"><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
+        <% } else { %>
+          <li><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
+        <% } %>
+
+          <% if(title == "Diseases") { %>
+          <li class="active"><a href="/diseases"><!--<i class="fa fa-diseasepad fa-lg">-->
+          </i> Disease List</a></li>
+          <% } else { %>
+            <li><a href="/diseases"> <!--<i class="fa fa-diseasepad fa-lg">-->
+            </i>Disease List</a></li>
+          <% } %>
+        
+
+        <% if(title == "Contact") { %>
+          <li class="active"><a href="/contact"><i class="fa fa-phone fa-lg"></i> Contact</a></li>
+        <% } else { %>
+          <li><a href="/contact"><i class="fa fa-phone fa-lg"></i>Contact</a></li>
+        <% } %>
+
+          <% if(title == "Genetics") { %>
+          <li class="active"><a href="/genetics"><i class="fa fa-phone fa-lg"></i>Genetics</a></li>
+        <% } else { %>
+          <li><a href="/genetics"><i class="fa fa-phone fa-lg"></i>Genetics</a></li>
+        <% } %>
+
+         <% if(title == "Mitochondrial Disease") { %>
+          <li class="active"><a href="/mitoDisease"><i class="fa fa-phone fa-lg"></i>Mitochondrial Disease</a></li>
+        <% } else { %>
+          <li><a href="/mitoDisease"><i class="fa fa-phone fa-lg"></i>Mitochondrial Disease</a></li>
+        <% } %>
+<!--
+        <% if(title == "Resources") { %>
+          <li class="active"><a href="/resources"><i class="fa fa-phone fa-lg"></i>Policy</a></li>
+        <% } else { %>
+          <li><a href="/resources"><i class="fa fa-phone fa-lg"></i>Policy</a></li>
+        <% } %>
+-->
+        <% if(title == "What Are Mitochondria?") { %>
+          <li class="active"><a href="/whatIs"><i class="fa fa-phone fa-lg"></i>Mitochondria?</a></li>
+        <% } else { %>
+          <li><a href="/whatIs"><i class="fa fa-phone fa-lg"></i>Mitochondria?</a></li>
+        <% } %>
+        
+        <% if(title == "Who Is MitoCanada?") { %>
+          <li class="active"><a href="/whoareWe"><i class="fa fa-phone fa-lg"></i>MitoCanada?</a></li>
+        <% } else { %>
+          <li><a href="/whoAreWe"><i class="fa fa-phone fa-lg"></i>MitoCanada?</a></li>
+        <% } %>
+
+        
+        <!--login/logout -->
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <li class="navbar-text"><i class="fa fa-user"></i> Welcome, <%= displayName %></li>
+          <li><a href="/users/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+        <% } else { %>
+          <li><a href="/users/login"><i class="fa fa-sign-in"></i> Login/Register</a></li>
+        <% } %>
+
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+ 
+
+  <img src="/Content/images/Mito_Canada_logo_webtitle-no backgroud2.png">
