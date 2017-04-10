@@ -1,13 +1,13 @@
 let domain = 'mydomian.org'
-let apiKey = (process.env.apiKey || config.apiKey);
+let apiKeyT = (process.env.apiKey || config.apiKey);
 let mg = new mailgun(apiKey);
-const mailgun = require("mailgun-js")({ apiKey: "YOUR API KEY", domain: domain });
+const mailgun = require("mailgun-js")({ apiKey: apiKeyT, domain: domain });
 
 const mailcomposer = require("mailcomposer")
 
-var mail = mailcomposer({
-  from: 'you@samples.mailgun.org',
-  to: 'mm@samples.mailgun.org',
+let mail = mailcomposer({
+  from: 'MitoNavigatorMailer@gmail.com',
+  to: 'MatthewYaworski@gmail.com',
   subject: 'Test email subject',
   text: 'Test email text',
   html: '<b> Test email text </b>'
@@ -15,8 +15,8 @@ var mail = mailcomposer({
  
 mail.build(function(mailBuildError, message) {
  
-    var dataToSend = {
-        to: 'mm@samples.mailgun.org',
+    let dataToSend = {
+        to: 'MatthewYaworski@gmail.com',
         message: message.toString('ascii')
     };
  
