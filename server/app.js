@@ -14,6 +14,7 @@ let passportlocal = require('passport-local');
 let LocalStrategy = passportlocal.Strategy;
 let flash = require('connect-flash'); // displays errors / login messages
 
+
 // import "mongoose" - required for DB Access
 let mongoose = require('mongoose');
 // URI
@@ -45,7 +46,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, '../node_modules')));
+app.use(express.static(path.join(__dirname, '../node_modules')));
 
 
 // setup session
@@ -73,24 +74,48 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 /////////////////////////////////////////////////////
+//let diseases = require('../models/diseases');
+let diseaseC = require('./models/diseases');
+let jsonDiseases = require('../diseaselist.json');
+console.log("check db.");
+diseaseC.count(function (err, count) {
+  if (count < 3) {
+    console.dir(err);
+    console.dir(count);
+    if (count == 0) {
+      console.log("No Found Records.");
+    }
+    else {
+      console.log("Found Records : " + count);
+    }
 
+    diseaseC.insertMany(jsonDiseases, function (err, result) {
+      if (err) {
+        // handle error
+      } else {
+        // handle success
+      }
+    });
+
+  }
+});
 //////////////////////////////////////////////////////
 
 // Handle 404 Errors
-  app.use(function(req, res) {
-      res.status(400);
-     res.render('errors/404',{
-      title: '404: File Not Found'
-    });
+app.use(function (req, res) {
+  res.status(400);
+  res.render('errors/404', {
+    title: '404: File Not Found'
   });
+});
 
-  // Handle 500 Errors
-  app.use(function(error, req, res, next) {
-      res.status(500);
-      res.render('errors/500', {
-        title:'500: Internal Server Error',
-        error: error
-      });
+// Handle 500 Errors
+app.use(function (error, req, res, next) {
+  res.status(500);
+  res.render('errors/500', {
+    title: '500: Internal Server Error',
+    error: error
   });
+});
 
 module.exports = app;

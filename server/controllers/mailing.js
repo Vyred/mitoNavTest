@@ -1,4 +1,5 @@
-let domain = 'mydomian.org'
+/*
+let domain = 'mitonavigtor.org'
 let apiKeyT = (process.env.apiKey || config.apiKey);
 let mg = new mailgun(apiKey);
 const mailgun = require("mailgun-js")({ apiKey: apiKeyT, domain: domain });
@@ -39,8 +40,8 @@ mailgun.messages().sendMime(data, function (err, body) {
   console.log(body);
 });
 
-
-//////////////////////////////////////////////
+*/
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Composer
 ///////////////////////////////////////////////
 //var mail = mailcomposer({from: '...', ...});

@@ -23,8 +23,10 @@
               <option 
               value = <%= diseases[count]._id %>
               data-name = "<%= diseases[count].name %>"
-              
+              data-type = "<%= diseases[count].type %>"
+              data-description = "<%= diseases[count].description %>"
               data-symptoms = "<%= diseases[count].symptoms %>"
+              data-references = "<%= diseases[count].references %>"
                >
                 <%= diseases[count].name %>
               </option>
@@ -56,10 +58,10 @@
               document.getElementById("DiseaseReferences").textContent = "Select an Option";
             } else {
              document.getElementById("DiseaseName").textContent = attributes.getAttribute('data-name');
-             //document.getElementById("DiseaseType").textContent = attributes.getAttribute('data-type');
-              // document.getElementById("DiseaseDescription").textContent =  attributes.getAttribute('data-description');
+             document.getElementById("DiseaseType").textContent = attributes.getAttribute('data-type');
+             document.getElementById("DiseaseDescription").textContent =  attributes.getAttribute('data-description');
              document.getElementById("DiseaseSymptoms").textContent = attributes.getAttribute('data-symptoms');
-              // document.getElementById("DiseaseReferences").textContent =  attributes.getAttribute('data-references');
+             document.getElementById("DiseaseReferences").textContent =  attributes.getAttribute('data-references');
 
 
               //window.location.replace("http://stackoverflow.com");

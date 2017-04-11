@@ -6,6 +6,7 @@ let disease = require('../models/diseases');
 // Read and display the Disease List
 module.exports.ReadDiseaseList = (req, res) => {
   // find all diseases in the diseases collection
+  
   disease.find((err, diseases) => {
     if (err) {
       return console.error(err);
@@ -21,6 +22,7 @@ module.exports.ReadDiseaseList = (req, res) => {
   });
 
 }
+
 
 // displays the Details page - allowing users to add a new Disease
 module.exports.DisplayAdd = (req, res) => {
