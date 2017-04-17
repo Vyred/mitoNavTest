@@ -16,7 +16,8 @@ module.exports.ReadDiseaseList = (req, res) => {
       res.render('diseases/index', {
         title: 'Mitochonrial Diseases',
         diseases: diseases,
-        displayName: req.user ? req.user.displayName : ''
+        displayName: req.user ? req.user.displayName : '',
+        userHigher: req.user ? req.user.level : ''
     });
     }
   });
