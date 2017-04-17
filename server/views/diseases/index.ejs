@@ -1,9 +1,7 @@
 <% include ../partials/header.ejs %>
 
   <!-- MAIN CONTENT -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-offset-3 col-md-6">
+  
         <h3>Mitochondrial List </h3>
 
 
@@ -116,70 +114,57 @@
           </tr>
         </table>
 
-        </br>
-        <div>
-          <% if(typeof displayName == 'string' && displayName && userHigher == "Admin" && userHigher) { %>
-            <a href="/diseases/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Disease</a>
-            <br>
-            <div class="table-responsive">
-              <table class="table table-bordered table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Type</th>
-                    <th class="text-center">Description</th>
-                    <th class="text-center">Symptoms</th>
-                    <th class="text-center">References</th>
-                    <th class="text-center">Tags</th>
-                    <th class="text-center">Edit</th>
-                    <th class="text-center">Delete</th>
-                  </tr>
-                </thead>
-                <tbody id="myTable">
-                  <!-- Template Row -->
-                  <% for (let count = 0; count < diseases.length; count++) { %>
-                    <tr>
-                      <td>
-                        <%= diseases[count].name %>
-                      </td>
-                      <td class="text-center">$
-                        <%= diseases[count].type %>
-                      </td>
-                      <td class="text-center">$
-                        <%= diseases[count].description %>
-                      </td>
-                      <td class="text-center">$
-                        <%= diseases[count].symptoms %>
-                      </td>
-                      <td class="text-center">
-                        <%= diseases[count].references %>
-                      </td>
-                      <td class="text-center">$
-                        <%= diseases[count].tags %>
-                      </td>
-                      <td class="text-center">
-                        <a class="btn btn-primary" href="/diseases/<%= diseases[count]._id %>" role="button"><i class="fa fa-pencil-square-o"></i> Edit</a>
-                      </td>
-                      <td class="text-center">
-                        <a class="btn btn-danger" href="/diseases/delete/<%= diseases[count]._id %>" role="button"><i class="fa fa-trash-o"></i> Delete</a>
-                      </td>
-                    </tr>
-                    <% } %>
-                </tbody>
-              </table>
-            </div>
-            <div class="col-md-offset-1 col-md-10 text-center">
-              <ul class="pagination pagination-lg pager" id="myPager"></ul>
-            </div>
-            <% } else { %>
-
-              <% } %>
-        </div>
-      </div>
-    </div>
-  </div>
+   
 
 
   </br>
+
+  <div>
+    <% if(typeof displayName == 'string' && displayName && userHigher == "Admin" && userHigher) { %>
+      <a href="/diseases/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Disease</a>
+        <br>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Type</th>
+                  <th class="text-center">Description</th>
+                  <th class="text-center">Symptoms</th>
+                  <th class="text-center">References</th>
+                  <th class="text-center">Tags</th>
+                  <th class="text-center">Edit</th>
+                  <th class="text-center">Delete</th>
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                <!-- Template Row -->
+                <% for (let count = 0; count < diseases.length; count++) { %>
+                <tr>
+                  <td><%= diseases[count].name %></td>
+                  <td class="text-center">$<%= diseases[count].type %></td>
+                   <td class="text-center">$<%= diseases[count].description %></td>
+                    <td class="text-center">$<%= diseases[count].symptoms %></td>
+                  <td class="text-center"><%= diseases[count].references %></td>
+                   <td class="text-center">$<%= diseases[count].tags %></td>            
+                  <td class="text-center">
+                    <a class="btn btn-primary" href="/diseases/<%= diseases[count]._id %>" role="button"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                  </td>
+                  <td class="text-center">
+                     <a class="btn btn-danger" href="/diseases/delete/<%= diseases[count]._id %>" role="button"><i class="fa fa-trash-o"></i> Delete</a>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+           <div class="col-md-offset-1 col-md-10 text-center">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+          </div>
+      <% } else { %>
+
+        <% } %>
+  </div>
+
   <% include ../partials/angular.ejs %>
     <% include ../partials/footer.ejs %>
