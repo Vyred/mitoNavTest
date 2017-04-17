@@ -124,7 +124,7 @@
   </br>
 
   <div>
-    <% if(typeof displayName == 'string' && displayName && userHigher == 'Admin' && userHigher) { %>
+    <% if(typeof displayName == 'string' && displayName && userHigher == "Admin" && userHigher) { %>
       <a href="/diseases/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Disease</a>
         <br>
           <div class="table-responsive">
@@ -149,7 +149,7 @@
                   <td class="text-center">$<%= diseases[count].type %></td>
                    <td class="text-center">$<%= diseases[count].description %></td>
                     <td class="text-center">$<%= diseases[count].symptoms %></td>
-                  <td class="text-center"><%= disease[count].references %></td>
+                  <td class="text-center"><%= diseases[count].references %></td>
                    <td class="text-center">$<%= diseases[count].tags %></td>            
                   <td class="text-center">
                     <a class="btn btn-primary" href="/diseases/<%= diseases[count]._id %>" role="button"><i class="fa fa-pencil-square-o"></i> Edit</a>
