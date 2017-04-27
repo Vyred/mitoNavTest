@@ -5,6 +5,7 @@ let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+
 let helmet = require('helmet');
 
 // modules for authentication
@@ -34,7 +35,9 @@ let diseases = require('./routes/diseases'); // routes for diseases
 let users = require('./routes/users'); // routes for users and auth
 
 let app = express();
+
 app.use(helmet());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
